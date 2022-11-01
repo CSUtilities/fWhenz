@@ -1,13 +1,25 @@
 import React from 'react';
 import { render } from 'react-dom';
-
+import { Provider } from 'react-redux';
+import store from './redux/store';
+import { useAppSelector, useAppDispatch } from './redux/hooks';
+import { assignUser, removeUser } from './redux/userSlice';
 
 const App = () => {
-  return (
+  const user = useAppSelector((state)=> state.user.value);
+  const dispatch = useAppDispatch();
+
+    return (
     <div>
-      hi bitches do you see my steamy ass text
+      State: {user}
+      <button onClick={() => dispatch(assignUser('Kevin'))} >Assign</button>
+      <button onClick={() => dispatch(removeUser())} >Remove</button>
+
     </div>
   );
 }
 
-render(<App />, document.querySelector('#root'));
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>, document.querySelector('#root'));
