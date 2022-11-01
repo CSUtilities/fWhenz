@@ -1,0 +1,53 @@
+{
+  "name": "fwhenz",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/server/server.ts & webpack serve --open",
+    "test": "test",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CSUtilities/fWhenz.git"
+  },
+  "author": "Kris Magat, Vu Duong, David Cheng, Kevin Wang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CSUtilities/fWhenz/issues"
+  },
+  "homepage": "https://github.com/CSUtilities/fWhenz#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.2",
+    "gapi-script": "^1.2.0",
+    "jest": "^29.2.2",
+    "jwt-decode": "^3.1.2",
+    "jwt-simple": "^0.5.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-google-login": "^5.2.2",
+    "react-redux": "^8.0.4",
+    "react-router": "^6.4.2",
+    "react-router-dom": "^6.4.2"
+  },
+  "devDependencies": {
+    "@types/react-dom": "^18.0.8",
+    "babel": "^6.23.0",
+    "babel-loader": "^9.0.1",
+    "concurrently": "^7.5.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.7.1",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.1",
+    "nodemon": "^2.0.20",
+    "ts-loader": "^9.4.1",
+    "typescript": "^4.8.4",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.1"
+  }
+}
