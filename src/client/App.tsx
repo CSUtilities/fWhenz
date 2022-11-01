@@ -7,6 +7,16 @@ import Login from './components/UserLogin';
 import UserProfile from './components/UserProfile';
 import List from './components/List';
 
+import { Provider } from 'react-redux';
+import store from './redux/store';
+import { useAppSelector, useAppDispatch } from './redux/hooks';
+import { assignUser, removeUser } from './redux/userSlice';
+
+const App = () => {
+  const user = useAppSelector((state)=> state.user.value);
+  const dispatch = useAppDispatch();
+
+
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -24,7 +34,7 @@ const App = () => {
     </div>
   );
 }
-
-render(<App />, document.querySelector('#root'));
-
-export { App, UserContext };
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>, document.querySelector('#root'));
