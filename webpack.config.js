@@ -1,13 +1,17 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+//plugin pulled from previous boilerplate, note to delete before launch
 // const CopyPlugin = require('copy-webpack-plugin');
 
+console.log('NODE_ENV:', process.env.NODE_ENV)
+
 module.exports = {
-  mode: 'development',
+  mode: process.env.NODE_ENV,
   entry: './src/client/App.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+    publicPath: '/build',
   },
   module: {
     rules: [
