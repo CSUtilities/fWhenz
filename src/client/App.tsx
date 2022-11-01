@@ -2,10 +2,10 @@ import React, { useState, createContext, UserContext } from 'react';
 import { render } from 'react-dom';
 import { RouteContext } from 'react-router';
 import { Routes, Route } from 'react-router-dom';
-import Dashboard from './components/dashboard';
-import UserLogin from './components/userLogin';
-import UserProfile from './components/userProfile';
-import List from './components/list';
+import Dashboard from './components/Dashboard';
+import Login from './components/UserLogin';
+import UserProfile from './components/UserProfile';
+import List from './components/List';
 
 
 const App = () => {
@@ -15,10 +15,10 @@ const App = () => {
     <div id='app'>
       <UserContext.Provider value = {[user, setUser]}>
         <Routes>
-          <Route index element={<Dashboard />} />
-          <Route index path='/*' element={<UserLogin />} />
-          <Route index path='/*' element={<UserProfile />} />
-          <Route index path='/*' element={<List />} />
+          <Route index element={<Login />} />
+          <Route index path='/components' element={<Dashboard />} />
+          <Route index path='/components' element={<UserProfile />} />
+          <Route index path='/components' element={<List />} />
         </Routes>
       </UserContext.Provider>
     </div>
