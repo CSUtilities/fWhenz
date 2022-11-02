@@ -39,10 +39,10 @@ export const profileSlice = createSlice({
     createProfile: (state: ProfileState, action: PayloadAction<Profile>) => {
       state.value = action.payload;
     },
-    updateProfile: (state, action: PayloadAction<Profile>) => {
+    updateProfile: (state: ProfileState, action: PayloadAction<Profile>) => {
       state.value = action.payload;
     },
-    deleteProfile: (state, action: PayloadAction<Profile>) => {
+    deleteProfile: (state: ProfileState) => {
       state.value = initialProfile;
     },
   },

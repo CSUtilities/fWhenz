@@ -60,9 +60,9 @@ test('should update the user value', () => {
   expect(reducer(previousState, updateProfile(newProfile))).toEqual(newState);
 });
 
-test('should update the user value', () => {
+test('should delete the user value', () => {
   const previousState: typeof initialState = newState;
-  expect(reducer(previousState, updateProfile(initProfile))).toEqual(initialState);
+  expect(reducer(previousState, deleteProfile())).toEqual(initialState);
 });
 
 //TO RUN TEST: npm t
