@@ -53,3 +53,6 @@ export const { createProfile, updateProfile, deleteProfile } = profileSlice.acti
 export const selectProfile = (state: RootState) => state.profile.value;
 
 export default profileSlice.reducer;
+
+
+//SEE HOOKS.TS FOR USAGE SYNTAX

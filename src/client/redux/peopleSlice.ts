@@ -39,3 +39,6 @@ export const { getPeople } = PeopleSlice.actions;
 export const selectPeople = (state: RootState) => state.people.value;
 
 export default PeopleSlice.reducer;
+
+
+//SEE HOOKS.TS FOR USAGE SYNTAX

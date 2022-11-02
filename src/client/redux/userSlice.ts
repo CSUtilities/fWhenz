@@ -31,3 +31,6 @@ export const { assignUser, removeUser } = userSlice.actions;
 export const selectUser = (state: RootState) => state.user.value;
 
 export default userSlice.reducer;
+
+
+//SEE HOOKS.TS FOR USAGE SYNTAX

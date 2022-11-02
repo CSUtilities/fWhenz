@@ -7,18 +7,15 @@ export const useAppDispatch: () => Dispatch = useDispatch;
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
 
-
 //USE TYPED HOOKS IN COMPONENTS
-// import React, { useState } from 'react'
-
-// import { useAppSelector, useAppDispatch } from 'app/hooks'
-
-// import { decrement, increment } from './counterSlice'
+// import { useAppSelector, useAppDispatch } from 'redux/hooks';
+// import { assignUser, removeUser } from './redux/userSlice';
 
 // export function Dashboard() {
-//   // The `state` arg is correctly typed as `RootState` already
-//   const user = useAppSelector((state) => state.user.value)
-//   const dispatch = useAppDispatch()
+//   //to access state
+//   const user = useAppSelector((state) => state.user.value);
+//   const dispatch = useAppDispatch();
 
-//   // omit rendering logic
+//   //to use actions
+//   dispatch(removeUser());
 // }
