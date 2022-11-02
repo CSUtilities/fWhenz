@@ -3,24 +3,12 @@ import reducer, {
   updateProfile,
   deleteProfile,
   initialState,
-  initialProfile
+  ProfileState,
+  Profile
 } from '../src/client/redux/profileSlice';
 
 //used for testing
-const initProfile: typeof initialProfile = {
-    userId: null,
-    firstName: null,
-    lastName: null,
-    city: null,
-    state: null,
-    company: null,
-    email: null,
-};
-const initState: typeof initialState = {
-  value: initProfile
-};
-//used for testing
-const oldProfile: typeof initialProfile = {
+const oldProfile: Profile = {
     userId: 4321,
       firstName: 'Kirk',
       lastName: 'Hammet',
@@ -29,11 +17,11 @@ const oldProfile: typeof initialProfile = {
       company: 'Metallica',
       email: 'kh@metallica.com',
 };
-const oldState: typeof initialState = {
+const oldState: ProfileState = {
     value: oldProfile
   };
 //used for testing
-const newProfile: typeof initialProfile = {
+const newProfile: Profile = {
     userId: 1234,
     firstName: 'Kurt',
     lastName: 'Cobain',
@@ -42,7 +30,7 @@ const newProfile: typeof initialProfile = {
     company: 'Nirvana',
     email: 'kc@nirvana.com',
 };
-const newState: typeof initialState = {
+const newState: ProfileState = {
   value: newProfile
 }
 
@@ -51,17 +39,17 @@ test('should return the initial state', () => {
 });
 
 test('should assign values to profileState', () => {
-  const previousState: typeof initialState = initialState;
+  const previousState: ProfileState = initialState;
   expect(reducer(previousState, createProfile(newProfile))).toEqual(newState);
 });
 
 test('should update the user value', () => {
-  const previousState: typeof initialState = oldState;
+  const previousState: ProfileState = oldState;
   expect(reducer(previousState, updateProfile(newProfile))).toEqual(newState);
 });
 
 test('should delete the user value', () => {
-  const previousState: typeof initialState = newState;
+  const previousState: ProfileState = newState;
   expect(reducer(previousState, deleteProfile())).toEqual(initialState);
 });
 

@@ -2,6 +2,7 @@ import reducer, {
   assignUser,
   removeUser,
   initialState,
+  UserState
 } from '../src/client/redux/userSlice';
 
 test('should return the initial state', () => {
@@ -9,12 +10,12 @@ test('should return the initial state', () => {
 });
 
 test('should assign a number to the value property', () => {
-  const previousState: typeof initialState = {value: null}
+  const previousState: UserState = {value: null}
   expect(reducer(previousState, assignUser(200))).toEqual({value: 200});
 });
 
 test('should remove the user value', () => {
-  const previousState: typeof initialState = {value: 500};
+  const previousState: UserState = {value: 500};
   expect(reducer(previousState, removeUser())).toEqual({value: null});
 });
 

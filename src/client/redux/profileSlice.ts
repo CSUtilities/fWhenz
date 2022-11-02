@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from './store';
 
-// Define a type for the slice state
-interface Profile {  
+// Define a type for the slice state //exported for testing purposes
+export interface Profile {  
     userId: number | null,
     firstName: string | null,
     lastName: string | null,
@@ -12,12 +12,12 @@ interface Profile {
     email: string | null,
   }
 
-interface ProfileState {
+export interface ProfileState {
   value: Profile
 }
 
-// Define the initial state using that type //exported for testing purposes
-export const initialProfile: Profile = {  
+// Define the initial state using that type 
+const initialProfile: Profile = {  
     userId: null,
     firstName: null,
     lastName: null,
