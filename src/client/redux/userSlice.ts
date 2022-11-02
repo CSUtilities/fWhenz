@@ -6,8 +6,8 @@ interface UserState {
   value: number | null
 }
 
-// Define the initial state using that type
-const initialState: UserState = {
+// Define the initial state using that type //exported for testing purposes
+export const initialState: UserState = {
   value: null,
 }
 
@@ -31,6 +31,8 @@ export const { assignUser, removeUser } = userSlice.actions;
 export const selectUser = (state: RootState) => state.user.value;
 
 export default userSlice.reducer;
+
+// Exported for testing
 
 
 //SEE HOOKS.TS FOR USAGE SYNTAX

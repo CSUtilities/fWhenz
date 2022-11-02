@@ -3,11 +3,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 //plugin pulled from previous boilerplate, note to delete before launch
 // const CopyPlugin = require('copy-webpack-plugin');
 
-console.log('NODE_ENV:', process.env.NODE_ENV)
+console.log('NODE_ENV:', process.env.NODE_ENV);
 
 module.exports = {
   mode: process.env.NODE_ENV,
-  entry: './src/client/App.tsx',
+  entry: './src/client/index.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -23,12 +23,12 @@ module.exports = {
       {
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
-        use: ["ts-loader"],
+        use: ['ts-loader'],
       },
     ],
   },
   resolve: {
-    extensions: ['.jsx', '.js', ".tsx", ".ts"],
+    extensions: ['.jsx', '.js', '.tsx', '.ts'],
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -45,8 +45,7 @@ module.exports = {
     },
     proxy: {
       '/api': 'http://localhost:3333',
-      secure: false
-    }
+      secure: false,
+    },
   },
-
-}
+};

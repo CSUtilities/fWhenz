@@ -3,21 +3,21 @@ import type { RootState } from './store';
 
 // Define a type for the slice state
 interface Profile {  
-    userId: null,
-    firstName: null,
-    lastName: null,
-    city: null,
-    state: null,
-    company: null,
-    email: null,
+    userId: number | null,
+    firstName: string | null,
+    lastName: string | null,
+    city: string | null,
+    state: string | null,
+    company: string | null,
+    email: string | null,
   }
 
 interface ProfileState {
   value: Profile
 }
 
-// Define the initial state using that type
-const initialProfile: Profile = {  
+// Define the initial state using that type //exported for testing purposes
+export const initialProfile: Profile = {  
     userId: null,
     firstName: null,
     lastName: null,
@@ -26,7 +26,8 @@ const initialProfile: Profile = {
     company: null,
     email: null,
   }
-const initialState: ProfileState = {
+// Define the initial state using that type //exported for testing purposes
+export const initialState: ProfileState = {
   value: initialProfile 
 }
 
