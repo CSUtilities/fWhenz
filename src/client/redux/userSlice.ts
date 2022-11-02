@@ -3,12 +3,12 @@ import type { RootState } from './store';
 
 // Define a type for the slice state
 interface UserState {
-  value: string | null
+  value: number | null
 }
 
 // Define the initial state using that type
 const initialState: UserState = {
-  value: 'Kris',
+  value: null,
 }
 
 export const userSlice = createSlice({
@@ -16,7 +16,7 @@ export const userSlice = createSlice({
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
-    assignUser: (state, action: PayloadAction<string | null>) => {
+    assignUser: (state: UserState, action: PayloadAction<number | null>) => {
       state.value = action.payload;
     },
     removeUser: (state: UserState) => {
