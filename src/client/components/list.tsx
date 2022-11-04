@@ -1,4 +1,11 @@
 import React from 'react';
 
-const List = () => {};
-export default List;
+export default function List() {
+  return (
+    <div id='list'>
+      <h4>List</h4>
+      <div id='table'>
+      </div>
+    </div>
+  )
+};
