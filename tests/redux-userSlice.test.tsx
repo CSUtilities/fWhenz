@@ -19,4 +19,4 @@ test('should remove the user value', () => {
   expect(reducer(previousState, removeUser())).toEqual({value: null});
 });
 
-//TO RUN TEST: npm t
+//TO RUN TEST: npx jest

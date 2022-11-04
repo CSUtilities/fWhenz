@@ -53,4 +53,4 @@ test('should delete the user value', () => {
   expect(reducer(previousState, deleteProfile())).toEqual(initialState);
 });
 
-//TO RUN TEST: npm t
+//TO RUN TEST: npx jest

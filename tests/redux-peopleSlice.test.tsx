@@ -36,4 +36,4 @@ test('should assign an array of people to peopleState', () => {
 });
 
 
-//TO RUN TEST: npm t
+//TO RUN TEST: npx jest
