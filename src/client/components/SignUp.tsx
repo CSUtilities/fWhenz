@@ -7,18 +7,21 @@ interface Props {
   setNoUserAccount: (arg0: boolean) => void
 }
 
-export default function LogIn(props: Props) {
+export default function SignUp(props: Props) {
   const dispatch = useAppDispatch();
-
   return (
     <div>
-      <h4>Log In</h4>
+      <h4>Sign Up</h4>
       <span>
         <label>Username</label>
         <input type='text'></input>
       </span>
       <span>
-        <label>Password</label>
+        <label>Set Password</label>
+        <input type='password'></input>
+      </span>
+      <span>
+        <label>Confirm Password</label>
         <input type='password'></input>
       </span>
       <button onClick={()=>{
@@ -26,10 +29,9 @@ export default function LogIn(props: Props) {
         props.setDisplay('Dashboard');
         }
       }>Log In</button>
-      <p>Need an account? 
-        <a 
+      <p>Have an account? <a 
           href='#'
-          onClick ={()=>props.setNoUserAccount(true)}>Sign up</a>
+          onClick ={()=>props.setNoUserAccount(false)}>Sign up</a>
       </p>
     </div>
   )
