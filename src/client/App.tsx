@@ -5,7 +5,7 @@ import store from './redux/store';
 import { useAppSelector } from './redux/hooks';
 import Dashboard from './components/Dashboard';
 import Profile from './components/Profile';
-import Login from './components/Login';
+import Auth from './components/Auth';
 import List from './components/List';
 import Footer from './components/Footer'
 
@@ -21,10 +21,10 @@ const App = () => {
     <div>
       { display === 'Dashboard' ? <Dashboard /> :
         display === 'Profile' ? <Profile /> :
-        display === 'Login' ? <Login setDisplay={setDisplay}/> :
+        display === 'Login' ? <Auth setDisplay={setDisplay}/> :
         display === 'List' ? <List /> : <></>
       }
-      <Footer setDisplay={setDisplay} />
+      {user ? <Footer setDisplay={setDisplay} /> : <></>}
     </div>
   );
 }
