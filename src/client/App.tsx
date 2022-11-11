@@ -9,22 +9,23 @@ import Auth from './components/Auth';
 import List from './components/List';
 import Footer from './components/Footer'
 
+
 const App = () => {
   const [display, setDisplay] = useState('Dashboard');
-  const user = useAppSelector((state) => state.user.value);
+  const [userId, setUserId] = useState(0);
   
   useEffect(()=>{ 
-      if (!user) setDisplay('Login');
+      if (userId === 0) setDisplay('Login');
   });
 
   return (
     <div>
       { display === 'Dashboard' ? <Dashboard /> :
-        display === 'Profile' ? <Profile /> :
-        display === 'Login' ? <Auth setDisplay={setDisplay}/> :
+        display === 'Profile' ? <Profile setUserId={setUserId}/> :
+        display === 'Login' ? <Auth setDisplay={setDisplay} setUserId={setUserId}/> :
         display === 'List' ? <List /> : <></>
       }
-      {user ? <Footer setDisplay={setDisplay} /> : <></>}
+      {userId !== 0 ? <Footer setDisplay={setDisplay} /> : <></>}
     </div>
   );
 }

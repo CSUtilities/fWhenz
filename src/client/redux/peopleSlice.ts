@@ -19,7 +19,46 @@ export interface PeopleState {
   value: PeopleArray
 }
 // Define the initial People
-const initialPeople: PeopleArray = []
+const initialPeople: PeopleArray = [
+  {  
+    userId: 1001,
+    firstName: 'Kris',
+    lastName: 'Magat',
+    city: 'San Francisco',
+    state: 'CA',
+    company: 'Microsoft',
+    email: 'kris@microsoft.com',
+  },
+  {  
+    userId: 1002,
+    firstName: 'Kevin',
+    lastName: 'Wang',
+    city: 'Fremont',
+    state: 'CA',
+    company: 'Amazon',
+    email: 'kevin@amazon.com',
+  },
+  {  
+    userId: 1003,
+    firstName: 'David',
+    lastName: 'Cheng',
+    city: 'New York',
+    state: 'NY',
+    company: 'Netflix',
+    email: 'david@netflix.com',
+  },
+  {  
+    userId: 1004,
+    firstName: 'Vu',
+    lastName: 'Duong',
+    city: 'Los Angeles',
+    state: 'CA',
+    company: 'Google',
+    email: 'vudu@google.com',
+  },
+];
+
+
 // Define the initial state using that type //exported for testing purposes
 export const initialState: PeopleState = {
   value: initialPeople
@@ -33,6 +72,7 @@ export const PeopleSlice = createSlice({
     getPeople: (state: PeopleState, action: PayloadAction<PeopleArray>) => {
       state.value = action.payload;
     },
+    
   },
 })
 

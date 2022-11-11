@@ -2,8 +2,11 @@ import React from 'react';
 import { useAppSelector, useAppDispatch } from '../redux/hooks';
 import { removeUser } from '../redux/userSlice';
 
-export default function Profile () {
-  const user = useAppSelector((state) => state.user.value);
+interface Props {
+    setUserId: React.Dispatch<React.SetStateAction<number>>
+  }
+
+export default function Profile (props: Props) {
   const dispatch = useAppDispatch();
 
   return (
@@ -22,8 +25,7 @@ export default function Profile () {
       </div>
       <button 
         onClick={()=>{
-          dispatch(removeUser());
-          console.log('User:', user);
+          props.setUserId(0);
         }}>Sign Out</button>
     </div>
   )
