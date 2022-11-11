@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { useAppSelector, useAppDispatch } from '../redux/hooks';
 import { assignUser } from '../redux/userSlice';
 
@@ -14,8 +14,11 @@ export default function SignUp(props: Props) {
   const confirm = useRef<HTMLInputElement>(null);
   const userState = useAppSelector((state) => state.user.value);
   const dispatch = useAppDispatch();
+  const [passMatch, setPassMatch] = useState(true);
+
 
   const addNewUser = (user: string, password: string, confirm: string) => {
+    if (password !== confirm) return setPassMatch(false);
     const checkDup = userState.reduce((result, obj) => user === obj.userName ? true : result, false);
     if (!checkDup){
       const newUserId = userState[userState.length-1].userId!+1;
@@ -45,11 +48,12 @@ export default function SignUp(props: Props) {
         <input ref={confirm} id='confirm' type='password'></input>
       </span>
       <button onClick={()=>addNewUser(user.current!.value, pass.current!.value, confirm.current!.value)}
-      >Log In</button>
+      >Sign Up</button>
       <p>Have an account? <a 
           href='#'
-          onClick ={()=>props.setNoUserAccount(false)}>Sign up</a>
+          onClick ={()=>props.setNoUserAccount(false)}>Log In</a>
       </p>
+      {!passMatch ? <p>Invalid Username and/or Password.</p> : <></>}
     </div>
   )
 }

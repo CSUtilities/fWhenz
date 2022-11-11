@@ -10,9 +10,6 @@ interface Props {
   }
 
 export default function Auth(props: Props){
-  const setDisplay = props.setDisplay;
-  const setUserId = props.setUserId;
-  const dispatch = useAppDispatch();
   const [noUserAccount, setNoUserAccount] = useState(false);
 
   return (
@@ -20,13 +17,13 @@ export default function Auth(props: Props){
       <div>fWhenz</div>
       { !noUserAccount ? 
       <LogIn 
-        setDisplay={setDisplay}
-        setUserId={setUserId}
+        setDisplay={props.setDisplay}
+        setUserId={props.setUserId}
         setNoUserAccount={setNoUserAccount}
         /> : 
       <SignUp 
-        setDisplay={setDisplay}
-        setUserId={setUserId}
+        setDisplay={props.setDisplay}
+        setUserId={props.setUserId}
         setNoUserAccount={setNoUserAccount}
         />}
     </div>

@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, { useState, useRef } from 'react';
 import { useAppSelector, useAppDispatch } from '../redux/hooks';
 
 interface Props {
@@ -12,6 +12,7 @@ export default function LogIn(props: Props) {
   const pass = useRef<HTMLInputElement>(null);
   const userState = useAppSelector((state) => state.user.value);
   const dispatch = useAppDispatch();
+  const [invalid, setInvalid] = useState(false);
 
   const verifyUser = (user: string, pass: string) => {
     const userAcct = userState.filter(obj => user === user) || null;
@@ -19,6 +20,8 @@ export default function LogIn(props: Props) {
       props.setDisplay('Dashboard');
       props.setUserId(userAcct[0].userId!)
     }
+    else 
+      setInvalid(true);
   };
 
   return (
@@ -38,6 +41,7 @@ export default function LogIn(props: Props) {
           href='#'
           onClick ={()=>props.setNoUserAccount(true)}>Sign up</a>
       </p>
+      {invalid ? <p>Invalid Username and/or Password.</p> : <></>}
     </div>
   )
 }

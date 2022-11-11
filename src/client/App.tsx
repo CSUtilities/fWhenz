@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import store from './redux/store';
-import { useAppSelector } from './redux/hooks';
 import Dashboard from './components/Dashboard';
 import Profile from './components/Profile';
 import Auth from './components/Auth';
