@@ -2,21 +2,31 @@ import reducer, {
   assignUser,
   removeUser,
   initialState,
-  UserState
+  UserState,
+  UserArray,
+  UserCredential
 } from '../src/client/redux/userSlice';
 
+const user: UserCredential = {
+  userId: 200,
+  userName: 'Magic',
+  password: 'johnson'
+}
+
+
 test('should return the initial state', () => {
-  expect(reducer(undefined, { type: undefined })).toEqual({ value: null });
+  console.log(initialState.value);
+  expect(reducer(undefined, { type: undefined })).toEqual(initialState);
 });
 
-test('should assign a number to the value property', () => {
-  const previousState: UserState = {value: null}
-  expect(reducer(previousState, assignUser(200))).toEqual({value: 200});
+test('should assign a user to the value property', () => {
+  const previousState: UserState = {value: initialState.value}
+  expect(reducer(previousState, assignUser(user))).toEqual({value:[...previousState.value, user]});
 });
 
 test('should remove the user value', () => {
-  const previousState: UserState = {value: 500};
-  expect(reducer(previousState, removeUser())).toEqual({value: null});
+  const previousState: UserState = {value: [...initialState.value, user]};
+  expect(reducer(previousState, removeUser(200))).toEqual(initialState);
 });
 
 //TO RUN TEST: npx jest
